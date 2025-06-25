@@ -155,7 +155,7 @@ const TestimonialsSection = () => {
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ delay: 0.3, duration: 0.5 }}
-                        className="origin-left w-24 h-1 bg-gradient-to-r from-blue-400 via-green-400 to-purple-400 rounded-full mt-6"
+                        className="origin-left w-24 h-1 bg-gradient-to-r from-[#C7F380] via-green-400 to-[#C7F380] rounded-full mt-6"
                       />
                     </motion.div>
                   )}

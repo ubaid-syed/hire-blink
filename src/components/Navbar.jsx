@@ -108,14 +108,14 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <a
             href="#newsletter"
-            className="hidden md:block px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 shadow-md border border-transparent"
+            className="baloo-text hidden md:block px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 shadow-md border border-transparent"
             style={{
               background: getInTouchBg,
               color: getInTouchText,
               boxShadow: "0 2px 16px 0 rgba(199,243,128,0.15)",
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.background = "#e6ffb7";
+              e.currentTarget.style.background = "#C7F380";
               e.currentTarget.style.color = "#0D263A";
               e.currentTarget.style.boxShadow = "0 4px 24px 0 rgba(199,243,128,0.25)";
             }}
