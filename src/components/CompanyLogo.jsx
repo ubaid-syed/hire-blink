@@ -1,11 +1,11 @@
-import slack from '../assets/slack.png'
-import amazon from '../assets/amazon.png'
-import woocommerce from '../assets/woocommerce.png'
-import meundies from '../assets/meundies.png'
-import sitepoint from '../assets/sitepoint.png'
-
 const CompanyLogo = () => {
-  const logos = [slack, amazon, woocommerce, meundies, sitepoint];
+  const logos = [
+    '/ignite_sales_academy_logo.jfif',
+    '/Layer_1-26.png', 
+    '/logo.webp',
+    '/syndicate_legal_group_logo.jfif',
+    '/star.jpg'
+  ];
 
   return (
     <div className="w-full container mx-auto py-20 overflow-hidden flex  flex-col sm:flex-row sm:items-center items-start ">

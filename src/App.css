@@ -18,6 +18,12 @@ body{
   font-style: normal;
 }
 
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 /* make the color scheme like this code sleak #0D263A,#C7F380,#416439 */
 @keyframes marquee {

@@ -46,19 +46,19 @@ const PurposeSection = () => {
           >
             WHY HIRE BLINK?
           </motion.div>
-          <motion.h2
+          {/* <motion.h2
             variants={textVariant(0.4)}
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 baloo-text"
           >
             Most offshore recruiting teams stop at sourcing.<br className="hidden md:block" /> We go further.
-          </motion.h2>
+          </motion.h2> */}
           <motion.p
             variants={fadeIn("up", 0.5)}
             className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto poppins-regular"
           >
             Hire Blink takes full ownership of filling your roles—unlike traditional RPO firms. We combine AI-powered recruiting technology with real human expertise to help staffing agencies scale without breaking the bank.
             <br />
-            <span className="block mt-4 font-semibold text-gray-800 poppins-regular">
+            <span className="block mt-4 font-bold text-gray-800 poppins-bold">
               We're not just fast—we're accurate, affordable, and accountable.
             </span>
           </motion.p>
