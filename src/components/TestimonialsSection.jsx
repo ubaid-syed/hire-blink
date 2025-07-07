@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="relative z-10 w-full"
+        className="relative z-10 w-full text-center"
       >
         <motion.span
           variants={fadeIn("up", 0.25)}

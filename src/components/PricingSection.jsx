@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineBriefcase, HiOutlineUserGroup, HiOutlineCurrencyDollar, HiOutlineChartBar } from "react-icons/hi";
 import { fadeIn, textVariant } from "../utils/motion";
@@ -43,6 +43,7 @@ const statVariants = {
 
 const PricingSection = () => {
   const [hovered, setHovered] = useState(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   return (
     <motion.section
@@ -50,6 +51,7 @@ const PricingSection = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
+      onViewportEnter={() => setHasAnimated(true)}
       className="relative py-24 px-4 bg-white"
     >
       {/* Decorative elements for white theme */}
@@ -61,7 +63,7 @@ const PricingSection = () => {
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.h2
           variants={textVariant(0.3)}
-          className=" baloo-text text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 bg-clip-text text-transparent"
+          className="baloo-text text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 bg-clip-text text-transparent"
         >
           Stats That Speak
         </motion.h2>
@@ -87,9 +89,13 @@ const PricingSection = () => {
                     : "0 2px 8px 0 rgba(0, 0, 0, 0.05)"
               }}
             >
-              <span className="mb-4 drop-shadow-lg transition-transform duration-300 group-hover:scale-110">
+              <motion.span 
+                className="mb-4 drop-shadow-lg transition-transform duration-300 group-hover:scale-110"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
                 {stat.icon}
-              </span>
+              </motion.span>
               <motion.div
                 className="baloo-text text-4xl md:text-5xl font-extrabold text-gray-800 mb-2"
                 animate={{
@@ -97,7 +103,7 @@ const PricingSection = () => {
                   transition: { type: "spring", stiffness: 300, damping: 20 }
                 }}
               >
-                <AnimatedNumber value={stat.value} />
+                <AnimatedNumber value={stat.value} shouldAnimate={hasAnimated} delay={i * 0.2} />
               </motion.div>
               <div className="text-gray-600 text-lg font-medium poppins-regular">{stat.label}</div>
               {/* Animated underline on hover */}
@@ -115,53 +121,72 @@ const PricingSection = () => {
   );
 };
 
-// Animated number for stat value (handles +, $)
-function AnimatedNumber({ value }) {
-  const [display, setDisplay] = useState(value);
+// Enhanced animated number component with better counter effects
+function AnimatedNumber({ value, shouldAnimate = false, delay = 0 }) {
+  const [display, setDisplay] = useState("0");
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    // Only animate if value is a number or formatted number
-    const isNumber = typeof value === "number" || /^\$?\d+([,.]\d+)*\+?$/.test(value);
-    if (!isNumber) {
-      setDisplay(value);
-      return;
-    }
+    if (!shouldAnimate) return;
 
-    const cleanValue = value.toString().replace(/[^0-9]/g, "");
-    const prefix = value.toString().startsWith("$") ? "$" : "";
-    const suffix = value.toString().endsWith("+") ? "+" : "";
+    const timer = setTimeout(() => {
+      setIsAnimating(true);
+      
+      // Extract numeric value and formatting
+      const cleanValue = value.toString().replace(/[^0-9]/g, "");
+      const prefix = value.toString().startsWith("$") ? "$" : "";
+      const suffix = value.toString().endsWith("+") ? "+" : "";
+      const end = parseInt(cleanValue, 10);
 
-    let start = 0;
-    const end = parseInt(cleanValue, 10);
-    if (isNaN(end)) {
-      setDisplay(value);
-      return;
-    }
-
-    let frame;
-    const duration = 900;
-    const startTime = performance.now();
-
-    function animate(now) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const current = Math.floor(progress * (end - start) + start);
-      setDisplay(prefix + current.toLocaleString() + suffix);
-      if (progress < 1) {
-        frame = requestAnimationFrame(animate);
-      } else {
+      if (isNaN(end)) {
         setDisplay(value);
+        return;
       }
-    }
-    frame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(frame);
-    // eslint-disable-next-line
-  }, [value]);
+
+      // Enhanced animation with easing
+      const duration = 2000;
+      const startTime = performance.now();
+      let frame;
+
+      function animate(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smoother animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(easeOutQuart * end);
+        
+        setDisplay(prefix + current.toLocaleString() + suffix);
+        
+        if (progress < 1) {
+          frame = requestAnimationFrame(animate);
+        } else {
+          setDisplay(value);
+          setIsAnimating(false);
+        }
+      }
+      
+      frame = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(frame);
+    }, delay * 1000);
+
+    return () => clearTimeout(timer);
+  }, [value, shouldAnimate, delay]);
 
   return (
-    <span>
+    <motion.span
+      animate={isAnimating ? { 
+        scale: [1, 1.1, 1],
+        color: ["#374151", "#059669", "#374151"]
+      } : {}}
+      transition={{ 
+        duration: 0.3,
+        times: [0, 0.5, 1]
+      }}
+      className="inline-block"
+    >
       {display}
-    </span>
+    </motion.span>
   );
 }
 

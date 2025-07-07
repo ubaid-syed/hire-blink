@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { HiOutlineScale, HiOutlineLightBulb, HiOutlineShieldCheck } from "react-icons/hi";
@@ -18,7 +18,7 @@ const industries = [
     icon: <HiOutlineLightBulb className="text-blue-600 text-5xl mb-4" />,
     title: "VC Tech & Early Hires",
     description:
-      "From pre-seed startups to IPO-ready companies, we help place grads from top schools and talent with founder’s DNA in AI, SaaS, and VC-backed tech.",
+      "From pre-seed startups to IPO-ready companies, we help place grads from top schools and talent with founder's DNA in AI, SaaS, and VC-backed tech.",
     highlight: "VC Tech & Early Hires",
     color: "from-blue-100 to-blue-50",
   },
@@ -51,11 +51,11 @@ const ScheduleSection = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="max-w-7xl mx-auto px-4 py-16 md:py-24"
+      className="max-w-7xl mx-auto px-4 py-8 md:py-12"
     >
       <motion.div
         variants={fadeIn("up", 0.3)}
-        className="text-center mb-12"
+        className="text-center mb-8"
       >
         <motion.span
           variants={fadeIn("up", 0.4)}

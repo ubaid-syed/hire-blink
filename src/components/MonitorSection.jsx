@@ -50,6 +50,17 @@ const features = [
 ];
 
 const MonitorSection = () => {
+  const handleGetStarted = () => {
+    // Scroll to the newsletter section (contact form)
+    const newsletterSection = document.getElementById('newsletter');
+    if (newsletterSection) {
+      newsletterSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <motion.section
       variants={fadeIn('up', 0.2)}
@@ -98,6 +109,7 @@ const MonitorSection = () => {
             ))}
           </motion.ul>
           <motion.button
+            onClick={handleGetStarted}
             variants={fadeIn('up', 0.8)}
             whileHover={{
               scale: 1.05,

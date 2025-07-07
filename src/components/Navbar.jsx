@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -30,7 +30,26 @@ const Navbar = () => {
   const activeBgColor = "#132537";
   const getInTouchBg = "#ebffc4";
   const getInTouchText = "#132537";
-  const hoverNavBg = "rgba(13,38,58,0.08)";
+
+  // Smooth scroll function with delay for mobile
+  const scrollToSection = (href) => {
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100); // Add small delay to ensure menu closes first
+  };
+
+  // Handle navigation link click
+  const handleNavClick = (href) => {
+    setActiveLink(href);
+    setIsMenuOpen(false);
+    scrollToSection(href);
+  };
 
   return (
     <motion.nav
@@ -39,19 +58,40 @@ const Navbar = () => {
       animate="show"
       layout
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className={`fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-xl border border-gray-200/75 shadow-xl
-        ${
-          isMenuOpen
-            ? "w-[90vw] max-w-lg rounded-2xl"
-            : "rounded-full"
-        }`}
+      className={`
+        fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-xl border border-gray-200/75 shadow-xl
+        w-[80vw] 
+        max-w-[85vw]
+        sm:max-w-[500px]
+        md:max-w-[650px]
+        lg:max-w-[800px]
+        xl:max-w-[900px]
+        2xl:max-w-[1000px]
+        ${isMenuOpen ? "rounded-2xl" : "rounded-full"}
+        transition-all duration-300
+      `}
+      style={{
+        minWidth: "0",
+      }}
     >
       <motion.div
         layout="position"
-        className="flex items-center justify-between p-3"
+        className={`
+          flex items-center justify-between 
+          px-2 py-2
+          sm:px-4 sm:py-3
+          gap-2
+        `}
       >
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2 cursor-pointer flex-shrink-0 group">
+        <a
+          href="#home"
+          className="flex items-center gap-2 cursor-pointer flex-shrink-0 group"
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick("#home");
+          }}
+        >
           <img
             src="/Grad BH Fnl-2.png"
             alt="Hire Blink Logo"
@@ -59,24 +99,47 @@ const Navbar = () => {
           />
         </a>
 
-        {/* Navigation Links - Desktop */}
-        <div className="hidden md:flex items-center gap-2 mx-4">
+        {/* Navigation Links - Desktop & Tablet */}
+        <div
+          className={`
+            hidden
+            md:flex
+            items-center
+            gap-1
+            sm:gap-2
+            md:gap-3
+            lg:gap-4
+            mx-1
+            sm:mx-2
+            md:mx-4
+            flex-1
+            min-w-0
+            justify-center
+            overflow-x-auto
+          `}
+        >
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setActiveLink(link.href)}
-              className={`px-4 py-2 text-sm baloo-text font-medium rounded-full transition-all duration-300 relative overflow-hidden
-                ${
-                  activeLink === link.href
-                    ? "text-white"
-                    : "text-gray-700 hover:text-[#0D263A]"
-                }`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(link.href);
+              }}
+              className={`
+                px-3 sm:px-4 py-2 text-sm baloo-text font-medium rounded-full transition-all duration-300 relative overflow-hidden
+                ${activeLink === link.href
+                  ? "text-white"
+                  : "text-gray-700 hover:text-[#0D263A]"}
+                whitespace-nowrap
+              `}
               style={{
                 zIndex: 1,
                 fontWeight: activeLink === link.href ? 700 : 500,
                 letterSpacing: activeLink === link.href ? "0.02em" : "0",
-                boxShadow: activeLink === link.href ? "0 2px 16px 0 rgba(13,38,58,0.10)" : "none",
+                boxShadow: activeLink === link.href
+                  ? "0 2px 16px 0 rgba(13,38,58,0.10)"
+                  : "none",
               }}
             >
               {activeLink === link.href && (
@@ -105,14 +168,15 @@ const Navbar = () => {
         </div>
 
         {/* CTA Button & Mobile Menu Button */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <a
             href="#newsletter"
-            className="baloo-text hidden md:block px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 shadow-md border border-transparent"
+            className="baloo-text hidden md:block px-4 sm:px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 shadow-md border border-transparent"
             style={{
               background: getInTouchBg,
               color: getInTouchText,
               boxShadow: "0 2px 16px 0 rgba(199,243,128,0.15)",
+              whiteSpace: "nowrap",
             }}
             onMouseEnter={e => {
               e.currentTarget.style.background = "#C7F380";
@@ -156,9 +220,9 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => {
-                    setActiveLink(link.href);
-                    setIsMenuOpen(false);
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
                   }}
                   className={`w-full text-center block text-base font-semibold py-3 rounded-lg transition-all duration-300 relative
                     ${
@@ -190,7 +254,11 @@ const Navbar = () => {
               ))}
               <a
                 href="#newsletter"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMenuOpen(false);
+                  scrollToSection("#newsletter");
+                }}
                 className="w-full mt-2 text-center px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 shadow-md border border-transparent"
                 style={{
                   background: getInTouchBg,
