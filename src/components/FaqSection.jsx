@@ -5,20 +5,20 @@ import { HiChevronDown } from "react-icons/hi";
 
 const faqs = [
   {
-    question: "How does Blinks AI-powered recruiting work?",
+    question: "How does Blink's AI-powered recruiting work?",
     answer: "We combine advanced AI tools with human expertise. Our AI handles initial sourcing and screening, while our experienced recruiters focus on relationship building, negotiation, and closing candidates. This hybrid approach ensures both efficiency and the personal touch that top talent expects."
   },
   {
     question: "What industries do you specialize in?",
-    answer: "We serve three core sectors: Legal Staffing (boutique to AM 100 firms), VC Tech & Early Hires (pre-seed to IPO-ready companies), and Defense & IT Contracting (with clearance expertise). Each sector has dedicated recruiters with deep industry knowledge."
+    answer: "We serve three core sectors: Legal Staffing (boutique to Am Law 100 firms), VC Tech & Early Hires (pre-seed to IPO-ready companies), and Defense & IT Contracting (with clearance expertise). Each sector has dedicated recruiters with deep industry knowledge."
   },
   {
     question: "Do you charge for the AI tools you use?",
     answer: "No, we bear the full cost of our AI recruiting software. You get access to a complete tech stack without any additional fees. Our pricing is transparent and based on successful placements, not tool usage."
   },
   {
-    question: "What&apos;s your typical time-to-fill for roles?",
-    answer: "Our average time-to-fill is 30-45 days, significantly faster than industry standards. We achieve this through our AI-powered sourcing, extensive networks, and dedicated recruiters who take full responsibility for role fulfillment."
+    question: "What's your typical time-to-fill for roles?",
+    answer: "Our average time-to-fill is 30–45 days, significantly faster than industry standards. We achieve this through our AI-powered sourcing, extensive networks, and dedicated recruiters who take full responsibility for role fulfillment."
   },
   {
     question: "How do you ensure candidate quality?",
@@ -37,9 +37,7 @@ const FaqSection = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const handleContactClick = () => {
-    window.location.href = "mailto:contact@hire-blink.com";
-  };
+  // No need for handleContactClick, use mailto links directly
 
   return (
     <section id="faq" className="relative py-24 px-4">
@@ -137,11 +135,10 @@ const FaqSection = () => {
           <p className="text-gray-400 poppins-regular">
             Still have questions? We&apos;re here to help.
           </p>
-          <motion.button
-            onClick={handleContactClick}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <a
+            href="mailto:contact@hire-blink.com"
             className="mt-4 inline-flex items-center gap-2 text-[#C7F380] hover:text-green-300 transition-colors duration-200 baloo-text font-semibold"
+            style={{ display: "inline-flex" }}
           >
             <span>Contact Our Team</span>
             <motion.svg
@@ -154,7 +151,7 @@ const FaqSection = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </motion.svg>
-          </motion.button>
+          </a>
         </motion.div>
       </motion.div>
     </section>

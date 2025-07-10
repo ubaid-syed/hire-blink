@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import heroImage from '../assets/hero-image.png'
+// Import emailjs
+import emailjs from '@emailjs/browser';
 
 const Hero = () => {
   const [showForm, setShowForm] = useState(false);
@@ -22,14 +24,18 @@ const Hero = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
+    // EmailJS config
+    const SERVICE_ID = 'service_3id72hc';
+    const TEMPLATE_ID = 'template_um77ivj';
+    const PUBLIC_KEY = 'BbYJ3E_uPvE69kcf0';
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      // Send email using emailjs
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
           name: formData.name,
           email: formData.email,
           company: formData.company,
@@ -41,10 +47,11 @@ const Hero = () => {
             Company: ${formData.company}
             Position Needed: ${formData.position}
           `
-        }),
-      });
+        },
+        PUBLIC_KEY
+      );
 
-      if (response.ok) {
+      if (result.status === 200 || result.text === "OK") {
         alert('Thank you! Your request has been submitted successfully.');
         setFormData({
           name: '',
@@ -194,6 +201,8 @@ const Hero = () => {
                     type="email"
                     id="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors"
                     placeholder="Enter your email"
@@ -208,6 +217,8 @@ const Hero = () => {
                     type="text"
                     id="company"
                     name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors"
                     placeholder="Enter company name"
@@ -221,6 +232,8 @@ const Hero = () => {
                   <textarea
                     id="position"
                     name="position"
+                    value={formData.position}
+                    onChange={handleInputChange}
                     required
                     rows="3"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors resize-none"
