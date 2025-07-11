@@ -74,7 +74,7 @@ const FaqSection = () => {
             className="text-gray-300 text-lg max-w-2xl mx-auto poppins-regular"
           >
             Everything you need to know about working with Blink. Can&apos;t find what you&apos;re looking for? 
-            <a href="mailto:contact@hire-blink.com" className="text-[#C7F380] hover:text-green-300 transition-colors duration-200 ml-1">
+            <a href="mailto:Imaz@hire-blink.com" className="text-[#C7F380] hover:text-green-300 transition-colors duration-200 ml-1">
               Contact us directly.
             </a>
           </motion.p>
@@ -136,7 +136,7 @@ const FaqSection = () => {
             Still have questions? We&apos;re here to help.
           </p>
           <a
-            href="mailto:contact@hire-blink.com"
+            href="mailto:Imaz@hire-blink.com"
             className="mt-4 inline-flex items-center gap-2 text-[#C7F380] hover:text-green-300 transition-colors duration-200 baloo-text font-semibold"
             style={{ display: "inline-flex" }}
           >

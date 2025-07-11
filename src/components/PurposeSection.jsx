@@ -56,10 +56,10 @@ const PurposeSection = () => {
             variants={fadeIn("up", 0.5)}
             className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto poppins-regular"
           >
-            Hire Blink takes full ownership of filling your roles—unlike traditional RPO firms. We combine AI-powered recruiting technology with real human expertise to help staffing agencies scale without breaking the bank.
+           We assign specialized recruiters to each industry we serve—and intentionally work with a limited set of clients across Legal, VC-backed Tech, and Defense. This focused approach allows us to build deep domain expertise and deliver only the top 1% of candidates with speed and precision.
             <br />
             <span className="block mt-4 font-bold text-gray-800 poppins-bold">
-              We're not just fast—we're accurate, affordable, and accountable.
+            We combine AI-powered recruiting technology with real human expertise to help staffing agencies scale without breaking the bank.
             </span>
           </motion.p>
         </motion.div>

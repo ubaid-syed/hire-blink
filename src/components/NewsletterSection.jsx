@@ -58,13 +58,13 @@ const NewsletterSection = () => {
             variants={textVariant(0.4)}
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 poppins-regular"
           >
-            Need placements that are fast, affordable, and high-quality?
+           Need Placements? Your Next Hire is on us!
           </motion.h2>
           <motion.p
             variants={fadeIn('up', 0.5)}
             className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto poppins-regular"
           >
-            Book a strategy call now. <span className="text-white font-semibold poppins-regular">Let's show you how you can outpace your competitors.</span>
+            We don’t charge you until we get you a client submission.<span className="text-white font-semibold poppins-regular"> Let’s show you how you can outpace your competitor. </span>
           </motion.p>
         </motion.div>
 

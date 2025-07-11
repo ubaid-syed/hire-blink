@@ -19,7 +19,7 @@ const socialLinks = [
   },
   {
     name: "Email",
-    href: "mailto:info@hire-blink.com",
+    href: "mailto:Imaz@hire-blink.com",
     icon: <HiOutlineMail className="w-5 h-5" />,
     hoverColor: "hover:bg-teal-500",
   },
@@ -28,7 +28,7 @@ const socialLinks = [
 const footerLinks = [
   { name: "LinkedIn", href: "https://www.linkedin.com/company/102357127/admin/dashboard/", hoverClass: "hover:text-blue-400" },
   { name: "Twitter", href: "https://twitter.com/hireblink", hoverClass: "hover:text-sky-400" },
-  { name: "Email", href: "mailto:info@hire-blink.com", hoverClass: "hover:text-teal-400" },
+  { name: "Email", href: "mailto:Imaz@hire-blink.com", hoverClass: "hover:text-teal-400" },
 ];
 
 const bgBlobs = [

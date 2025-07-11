@@ -1,7 +1,10 @@
-import { motion } from "framer-motion";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { HiOutlineChip, HiOutlineUserGroup, HiOutlineLightningBolt, HiOutlineDatabase, HiOutlineClock, HiOutlineCog } from "react-icons/hi";
 import { FaCheckCircle } from "react-icons/fa";
+import emailjs from '@emailjs/browser';
 
 const practiceAreas = [
   {
@@ -50,15 +53,77 @@ const features = [
 ];
 
 const MonitorSection = () => {
-  const handleGetStarted = () => {
-    // Scroll to the newsletter section (contact form)
-    const newsletterSection = document.getElementById('newsletter');
-    if (newsletterSection) {
-      newsletterSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    position: ''
+  });
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // EmailJS config
+    const SERVICE_ID = 'service_5hd83jn';
+    const TEMPLATE_ID = 'template_28q7icj';
+    const PUBLIC_KEY = 'PGUyAo6dkkkPRFJ2K';
+
+    setSubmitting(true);
+    try {
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          position: formData.position,
+          subject: 'New Candidate Request from Hire-Blink',
+          message: `
+            Name: ${formData.name}
+            Email: ${formData.email}
+            Phone: ${formData.phone}
+            Company: ${formData.company}
+            Position Needed: ${formData.position}
+          `
+        },
+        PUBLIC_KEY
+      );
+
+      if (result.status === 200 || result.text === "OK") {
+        alert('Thank you! Your request has been submitted successfully.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          position: ''
+        });
+        setShowForm(false);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Something went wrong. Please try again.');
     }
+    setSubmitting(false);
+  };
+
+  const handleGetStarted = () => {
+    setShowForm(true);
   };
 
   return (
@@ -155,6 +220,135 @@ const MonitorSection = () => {
           ))}
         </motion.div>
       </div>
+
+      {/* Modal Form */}
+      <AnimatePresence>
+        {showForm && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4"
+            onClick={() => setShowForm(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 max-w-xs sm:max-w-sm md:max-w-md w-full shadow-2xl mx-auto"
+            >
+              <div className="flex justify-between items-center mb-4 sm:mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 baloo-text">Find Candidates</h3>
+                <button
+                  onClick={() => setShowForm(false)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Close form"
+                  type="button"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    autoComplete="name"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    autoComplete="email"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    placeholder="Enter your email"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    autoComplete="tel"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+                
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="company" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Company Name
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    required
+                    autoComplete="organization"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    placeholder="Enter company name"
+                  />
+                </div>
+                
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="position" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Position you need to fill
+                  </label>
+                  <textarea
+                    id="position"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleInputChange}
+                    required
+                    rows="3"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors resize-none text-sm sm:text-base"
+                    placeholder="Describe the position you need to fill"
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className={`w-full bg-gradient-to-r from-[#C7F380] to-[#A3E635] text-gray-900 font-semibold py-2.5 sm:py-3 px-4 rounded-lg hover:from-[#A3E635] hover:to-[#84CC16] transition-all duration-200 transform hover:scale-105 shadow-lg text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-[#C7F380] ${submitting ? 'opacity-60 cursor-not-allowed' : ''}`}
+                >
+                  {submitting ? "Submitting..." : "Submit Request"}
+                </button>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 };

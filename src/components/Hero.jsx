@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import heroImage from '../assets/hero-image.png'
-// Import emailjs
 import emailjs from '@emailjs/browser';
 
 const Hero = () => {
@@ -10,9 +9,11 @@ const Hero = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
     position: ''
   });
+  const [submitting, setSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,24 +27,26 @@ const Hero = () => {
     e.preventDefault();
 
     // EmailJS config
-    const SERVICE_ID = 'service_3id72hc';
-    const TEMPLATE_ID = 'template_um77ivj';
-    const PUBLIC_KEY = 'BbYJ3E_uPvE69kcf0';
+    const SERVICE_ID = 'service_5hd83jn';
+    const TEMPLATE_ID = 'template_28q7icj';
+    const PUBLIC_KEY = 'PGUyAo6dkkkPRFJ2K';
 
+    setSubmitting(true);
     try {
-      // Send email using emailjs
       const result = await emailjs.send(
         SERVICE_ID,
         TEMPLATE_ID,
         {
           name: formData.name,
           email: formData.email,
+          phone: formData.phone,
           company: formData.company,
           position: formData.position,
           subject: 'New Candidate Request from Hire-Blink',
           message: `
             Name: ${formData.name}
             Email: ${formData.email}
+            Phone: ${formData.phone}
             Company: ${formData.company}
             Position Needed: ${formData.position}
           `
@@ -56,6 +59,7 @@ const Hero = () => {
         setFormData({
           name: '',
           email: '',
+          phone: '',
           company: '',
           position: ''
         });
@@ -67,17 +71,18 @@ const Hero = () => {
       console.error('Error submitting form:', error);
       alert('Something went wrong. Please try again.');
     }
+    setSubmitting(false);
   };
 
   return (
-    <section id="home" className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 pt-44 pb-16 container mx-auto">
+    <section id="home" className="flex flex-col md:flex-row justify-between items-center px-2 sm:px-4 md:px-6 lg:px-8 pt-32 sm:pt-40 md:pt-44 pb-10 sm:pb-16 container mx-auto">
       {/* Left Column */}
-      <div className="w-full md:w-1/2 space-y-8">
+      <div className="w-full md:w-1/2 space-y-6 sm:space-y-8">
         <motion.div variants={fadeIn('right', 0.2)} initial="hidden" whileInView="show">
           {/* Star badge */}
-          <div className="flex items-center gap-2 bg-gray-50 w-fit px-4 py-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer group">
+          <div className="flex items-center gap-2 bg-gray-50 w-fit px-3 sm:px-4 py-1.5 sm:py-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer group">
             <span className="text-[#0D263A] group-hover:scale-110 transition-transform">★</span>
-            <span className="text-sm font-medium poppins-regular ">AI-Powered</span>
+            <span className="text-xs sm:text-sm font-medium poppins-regular">AI-Powered</span>
           </div>
         </motion.div>
 
@@ -85,7 +90,7 @@ const Hero = () => {
           variants={textVariant(0.3)}
           initial="hidden"
           whileInView="show"
-          className="baloo-text text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#C7F380] drop-shadow-lg"
+          className="baloo-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#C7F380] drop-shadow-lg"
         >
           AI-Powered On-Demand Recruiting for Staffing Agencies
         </motion.h1>
@@ -94,7 +99,7 @@ const Hero = () => {
           variants={fadeIn('up', 0.4)}
           initial="hidden"
           whileInView="show"
-          className="poppins-regular text-gray-300 text-lg md:text-xl max-w-xl"
+          className="poppins-regular text-gray-300 text-base sm:text-lg md:text-xl max-w-xl"
         >
           Place top talent with your clients—fast, cost-effective, and seamless. Just like the Blink of an Eye.
         </motion.p>
@@ -103,7 +108,7 @@ const Hero = () => {
           variants={fadeIn('up', 0.5)}
           initial="hidden"
           whileInView="show"
-          className="flex gap-3 max-w-md"
+          className="flex flex-col sm:flex-row gap-3 max-w-md"
         >
           {/* Modern Animated Button */}
           <motion.button
@@ -113,11 +118,11 @@ const Hero = () => {
               y: -2,
             }}
             whileTap={{ scale: 0.98 }}
-            className="flex justify-center gap-2 items-center shadow-xl text-lg bg-gradient-to-r from-[#C7F380] to-green-400 backdrop-blur-md lg:font-semibold isolation-auto border-[#C7F380] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#0D263A] hover:text-white before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-8 py-4 overflow-hidden border-2 rounded-full group"
+            className="flex justify-center gap-2 items-center shadow-xl text-base sm:text-lg bg-gradient-to-r from-[#C7F380] to-green-400 backdrop-blur-md lg:font-semibold isolation-auto border-[#C7F380] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#0D263A] hover:text-white before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-6 sm:px-8 py-3 sm:py-4 overflow-hidden border-2 rounded-full group"
           >
-            <span className="relative z-10 text-[#0D263A] group-hover:text-black transition-colors duration-300 poppins-regular">Find Candidates Free</span>
+            <span className="relative z-10 text-[#0D263A] group-hover:text-black transition-colors duration-300 poppins-regular">Start Free Candidate Search</span>
             <motion.svg
-              className="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-white text-[#0D263A] ease-linear duration-300 rounded-full border border-[#0D263A] group-hover:border-white p-2 rotate-45"
+              className="w-7 h-7 sm:w-8 sm:h-8 justify-end group-hover:rotate-90 group-hover:bg-white text-[#0D263A] ease-linear duration-300 rounded-full border border-[#0D263A] group-hover:border-white p-1.5 sm:p-2 rotate-45"
               viewBox="0 0 16 19"
               xmlns="http://www.w3.org/2000/svg"
               whileHover={{ rotate: 90 }}
@@ -136,13 +141,13 @@ const Hero = () => {
         variants={fadeIn('left', 0.5)}
         initial="hidden"
         whileInView="show"
-        className="w-full md:w-1/2 mt-16 md:mt-0 pl-0 md:pl-12"
+        className="w-full md:w-1/2 mt-10 sm:mt-16 md:mt-0 pl-0 md:pl-8 lg:pl-12"
       >
-        <div className="relative">
+        <div className="relative flex justify-center md:justify-end">
           <img
             src={heroImage}
             alt="Team meeting"
-            className="rounded-lg relative z-10 hover:scale-[1.02] transition-transform duration-300"
+            className="rounded-lg relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl hover:scale-[1.02] transition-transform duration-300"
           />
         </div>
       </motion.div>
@@ -154,21 +159,23 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4"
             onClick={() => setShowForm(false)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl"
+              className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 max-w-xs sm:max-w-sm md:max-w-md w-full shadow-2xl mx-auto"
             >
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 baloo-text">Find Candidates</h3>
+              <div className="flex justify-between items-center mb-4 sm:mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 baloo-text">Find Candidates</h3>
                 <button
                   onClick={() => setShowForm(false)}
                   className="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Close form"
+                  type="button"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -176,9 +183,9 @@ const Hero = () => {
                 </button>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Name
                   </label>
                   <input
@@ -188,13 +195,14 @@ const Hero = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors"
+                    autoComplete="name"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter your name"
                   />
                 </div>
                 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Email
                   </label>
                   <input
@@ -204,13 +212,31 @@ const Hero = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors"
+                    autoComplete="email"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter your email"
                   />
                 </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    autoComplete="tel"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
                 
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="company" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Company Name
                   </label>
                   <input
@@ -220,13 +246,14 @@ const Hero = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors"
+                    autoComplete="organization"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter company name"
                   />
                 </div>
                 
-                <div>
-                  <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="position" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Position you need to fill
                   </label>
                   <textarea
@@ -236,16 +263,17 @@ const Hero = () => {
                     onChange={handleInputChange}
                     required
                     rows="3"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors resize-none"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors resize-none text-sm sm:text-base"
                     placeholder="Describe the position you need to fill"
                   />
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#C7F380] to-[#A3E635] text-gray-900 font-semibold py-3 px-6 rounded-lg hover:from-[#A3E635] hover:to-[#84CC16] transition-all duration-200 transform hover:scale-105 shadow-lg"
+                  disabled={submitting}
+                  className={`w-full bg-gradient-to-r from-[#C7F380] to-[#A3E635] text-gray-900 font-semibold py-2.5 sm:py-3 px-4 rounded-lg hover:from-[#A3E635] hover:to-[#84CC16] transition-all duration-200 transform hover:scale-105 shadow-lg text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-[#C7F380] ${submitting ? 'opacity-60 cursor-not-allowed' : ''}`}
                 >
-                  Submit Request
+                  {submitting ? "Submitting..." : "Submit Request"}
                 </button>
               </form>
             </motion.div>

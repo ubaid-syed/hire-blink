@@ -60,9 +60,9 @@ const Navbar = () => {
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
       className={`
         fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-xl border border-gray-200/75 shadow-xl
-        w-[80vw] 
+        w-[60vw] 
         max-w-[85vw]
-        sm:max-w-[500px]
+        sm:max-w-[400px]
         md:max-w-[650px]
         lg:max-w-[800px]
         xl:max-w-[900px]
