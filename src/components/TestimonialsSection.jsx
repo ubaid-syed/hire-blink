@@ -30,13 +30,13 @@ const testimonials = [
 const bgBlobs = [
   {
     className:
-      "absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-tr from-blue-200 via-green-200 to-purple-100 rounded-full blur-3xl pointer-events-none z-0",
+      "absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl pointer-events-none z-0",
     style: { opacity: 0.18 },
     delay: 0.2,
   },
   {
     className:
-      "absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-br from-blue-200 via-pink-100 to-purple-100 rounded-full blur-3xl pointer-events-none z-0",
+      "absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl pointer-events-none z-0",
     style: { opacity: 0.12 },
     delay: 0.4,
   },

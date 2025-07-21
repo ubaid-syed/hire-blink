@@ -110,8 +110,8 @@ const FeaturesSection = () => {
       className="relative max-w-7xl mx-auto px-4 py-24"
     >
       {/* Decorative Blobs */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-30 pointer-events-none"></div>
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl opacity-30 pointer-events-none"></div>
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
       <motion.div
         variants={fadeIn("up", 0.3)}
         className="text-center mb-16 relative z-10"
@@ -148,7 +148,7 @@ const FeaturesSection = () => {
               scale: 1.03,
               boxShadow: "0 8px 32px 0 rgba(99,102,241,0.10)",
             }}
-            className={`group bg-gradient-to-br bg-[#C7F380] rounded-3xl shadow-xl p-10 flex flex-col items-center text-center transition-all duration-300 hover:shadow-2xl hover:scale-[1.03]`}
+            className={`group bg-gradient-to-br bg-[#ebffc4] rounded-3xl shadow-xl p-10 flex flex-col items-center text-center transition-all duration-300 hover:shadow-2xl hover:scale-[1.03]`}
           >
             <motion.div
               variants={fadeIn("down", 0.3 * (idx + 1))}

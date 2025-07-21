@@ -26,14 +26,14 @@ const NewsletterSection = () => {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-tr from-lime-300 via-blue-300 to-purple-300 rounded-full blur-3xl pointer-events-none z-0"
+        className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl pointer-events-none z-0"
       />
       <motion.div
         variants={bgBlobVariants}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-br from-blue-300 via-pink-300 to-purple-300 rounded-full blur-3xl pointer-events-none z-0"
+        className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl pointer-events-none z-0"
       />
 
       <motion.div
