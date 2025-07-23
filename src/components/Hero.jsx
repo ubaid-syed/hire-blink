@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
-import heroImage from '../assets/hero-image.png'
+import heroImage from '../../public/hero-image.png'
 import emailjs from '@emailjs/browser';
 
 const Hero = () => {

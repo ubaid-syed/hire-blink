@@ -17,8 +17,8 @@ const faqs = [
     answer: "No, we bear the full cost of our AI recruiting software. You get access to a complete tech stack without any additional fees. Our pricing is transparent and based on successful placements, not tool usage."
   },
   {
-    question: "What's your typical time-to-fill for roles?",
-    answer: "Our average time-to-fill is 30–45 days, significantly faster than industry standards. We achieve this through our AI-powered sourcing, extensive networks, and dedicated recruiters who take full responsibility for role fulfillment."
+    question: "How can you offer sourcing at 70% less than U.S. hires?",
+    answer: "We are up to 70% more cost-effective than hiring an in-house sourcer in the U.S because we operate in Pakistan.You get dedicated sourcing support without the overhead—no contracts, no long-term commitments. Just fast, flexible help when you need it."
   },
   {
     question: "How do you ensure candidate quality?",
