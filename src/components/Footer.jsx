@@ -7,7 +7,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 const socialLinks = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/imaz-akif-737475175?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    href: "https://www.linkedin.com/company/blink-hire/",
     icon: <FaLinkedinIn className="w-5 h-5" />,
     hoverColor: "hover:bg-blue-600",
   },
@@ -26,23 +26,17 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/imaz-akif-737475175?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", hoverClass: "hover:text-blue-400" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/blink-hire/", hoverClass: "hover:text-blue-400" },
   { name: "Twitter", href: "https://twitter.com/hireblink", hoverClass: "hover:text-sky-400" },
   { name: "Email", href: "mailto:Imaz@hire-blink.com", hoverClass: "hover:text-teal-400" },
 ];
 
 const bgBlobs = [
-  // {
-  //   className:
-  //     "absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-tr from-blue-300 via-green-300 to-purple-300 rounded-full blur-3xl pointer-events-none z-0",
-  //   style: { opacity: 0.1 },
-  //   delay: 0.2,
-  // },
+ 
   {
     className:
       "absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-[80px] -z-10",
-    // className:
-    //   "absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl pointer-events-none -z-10",
+   
     style: { opacity: 0.08 },
     delay: 0.4,
   },
