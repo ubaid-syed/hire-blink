@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
-import heroImage from '../../public/hero-image.png'
 import emailjs from '@emailjs/browser';
+
+const HERO_IMAGE_SRC = "/hero-image_11zon.webp"; 
 
 const Hero = () => {
   const [showForm, setShowForm] = useState(false);
@@ -144,10 +145,13 @@ const Hero = () => {
         className="w-full md:w-1/2 mt-10 sm:mt-16 md:mt-0 pl-0 md:pl-8 lg:pl-12"
       >
         <div className="relative flex justify-center md:justify-end">
+          {/* LCP image: discoverable, not lazy, fetchpriority=high */}
           <img
-            src={heroImage}
+            src={HERO_IMAGE_SRC}
             alt="Team meeting"
             className="rounded-lg relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl hover:scale-[1.02] transition-transform duration-300"
+            fetchpriority="high"
+            decoding="async"
           />
         </div>
       </motion.div>
