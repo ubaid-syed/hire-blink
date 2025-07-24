@@ -351,7 +351,7 @@ const Navbar = () => {
             }}
           >
             <img
-              src="/Grad BH Fnl-2.png"
+              src="/logomain.webp"
               alt="Hire Blink Logo"
               className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110"
             />

@@ -138,23 +138,18 @@ const Hero = () => {
       </div>
 
       {/* Right Column - Images */}
-      <motion.div 
-        variants={fadeIn('left', 0.5)}
-        initial="hidden"
-        whileInView="show"
-        className="w-full md:w-1/2 mt-10 sm:mt-16 md:mt-0 pl-0 md:pl-8 lg:pl-12"
+      {/* LCP image: discoverable, not lazy, fetchpriority=high */}
+      <div 
+        className="w-full md:w-1/2 mt-10 sm:mt-16 md:mt-0 pl-0 md:pl-8 lg:pl-12 flex justify-center md:justify-end"
       >
-        <div className="relative flex justify-center md:justify-end">
-          {/* LCP image: discoverable, not lazy, fetchpriority=high */}
-          <img
-            src={HERO_IMAGE_SRC}
-            alt="Team meeting"
-            className="rounded-lg relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl hover:scale-[1.02] transition-transform duration-300"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </div>
-      </motion.div>
+        <img
+          src={HERO_IMAGE_SRC}
+          alt="Team meeting"
+          className="rounded-lg relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl hover:scale-[1.02] transition-transform duration-300"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
 
       {/* Modal Form */}
       <AnimatePresence>
