@@ -279,9 +279,11 @@ const Navbar = () => {
   };
 
   // Custom colors
-  const activeBgColor = "#132537";
+  const activeBgColor = "#000000";
+  // const activeBgColor = "#132537";
   const getInTouchBg = "#ebffc4";
-  const getInTouchText = "#132537";
+  const getInTouchText = "#000000";
+  // const getInTouchText = "#132537";
 
   // Smooth scroll function with delay for mobile
   const scrollToSection = (href) => {

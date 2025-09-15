@@ -35,9 +35,13 @@ const CompanyLogo = () => {
       style={{ minHeight: 120 }} // Reserve space to prevent layout shift
     >
       <div
-        className="baloo-text w-[300px] shrink-0 px-8 text-gray-300 border-l-4 border-[#C7F380] bg-[#0D263A] py-2 z-10 sm:text-base text-xl font-semibold sm:text-left mb-8 sm:mb-0"
+        className="baloo-text w-[300px] shrink-0 px-8 text-gray-300 border-l-4 border-[#C7F380] bg-[#000000] py-2 z-10 sm:text-base text-xl font-semibold sm:text-left mb-8 sm:mb-0"
         style={{ minHeight: 56, lineHeight: "2.5rem" }} // Reserve space for text
       >
+      {/* <div
+        className="baloo-text w-[300px] shrink-0 px-8 text-gray-300 border-l-4 border-[#C7F380] bg-[#0D263A] py-2 z-10 sm:text-base text-xl font-semibold sm:text-left mb-8 sm:mb-0"
+        style={{ minHeight: 56, lineHeight: "2.5rem" }} // Reserve space for text
+      > */}
         Clients Supported
       </div>
       <div
