@@ -1,0 +1,9 @@
+# Force www to non-www for hire-blink.com
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.hire-blink\.com [NC]
+RewriteRule ^(.*)$ https://hire-blink.com/$1 [L,R=301]
+
+# React routing support (prevents 404 on refresh)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
