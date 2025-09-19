@@ -110,8 +110,8 @@ const FeaturesSection = () => {
       className="relative max-w-7xl mx-auto px-4 py-24"
     >
       {/* Decorative Blobs */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl opacity-30 pointer-events-none"></div>
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-b from-[#ebffc4] via-[#c7f380] to-[#a3e635] rounded-full blur-2xl opacity-30 pointer-events-none"></div>
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-[#ebffc4] via-[#c7f380] to-[#a3e635] rounded-full blur-2xl opacity-20 pointer-events-none"></div>
       <motion.div
         variants={fadeIn("up", 0.3)}
         className="text-center mb-16 relative z-10"
@@ -124,7 +124,7 @@ const FeaturesSection = () => {
         </motion.div>
         <motion.h2
           variants={textVariant(0.2)}
-          className="baloo-text text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-700 via-blue-700 to-emerald-600 bg-clip-text text-[#C7F380]"
+          className="baloo-text text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-700 via-blue-700 to-emerald-600 bg-clip-text text-[#ebffc4]"
         >
           Modern Recruiting, Redefined
         </motion.h2>
@@ -183,7 +183,7 @@ const FeaturesSection = () => {
             y: -2,
           }}
           whileTap={{ scale: 0.98 }}
-          className="flex justify-center gap-2 items-center shadow-xl text-lg bg-gradient-to-r from-[#C7F380] to-green-400 backdrop-blur-md lg:font-semibold isolation-auto border-[#C7F380] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#0D263A] hover:text-white before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-8 py-4 overflow-hidden border-2 rounded-full group"
+          className="flex justify-center gap-2 items-center shadow-xl text-lg bg-gradient-to-r from-[#ebffc4] to-green-400 backdrop-blur-md lg:font-semibold isolation-auto border-[#ebffc4] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#0D263A] hover:text-white before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-8 py-4 overflow-hidden border-2 rounded-full group"
         >
           <span className="relative z-10 text-[#0D263A] group-hover:text-black transition-colors duration-300 baloo-text">
             Discover the Blink Difference
@@ -208,7 +208,7 @@ const FeaturesSection = () => {
             y: -2,
           }}
           whileTap={{ scale: 0.98 }}
-          className="flex justify-center gap-2 items-center shadow-xl text-lg bg-white lg:font-semibold isolation-auto border-[#C7F380] relative z-10 px-8 py-4 overflow-hidden border-2 rounded-full group transition-colors duration-300 hover:bg-[#C7F380]/90"
+          className="flex justify-center gap-2 items-center shadow-xl text-lg bg-white lg:font-semibold isolation-auto border-[#ebffc4] relative z-10 px-8 py-4 overflow-hidden border-2 rounded-full group transition-colors duration-300 hover:bg-[#ebffc4]/90"
         >
           <span className="relative z-10 text-[#0D263A] group-hover:text-black transition-colors duration-300 baloo-text">
             Discover the Blink Difference
@@ -285,7 +285,7 @@ const FeaturesSection = () => {
                     onChange={handleInputChange}
                     required
                     autoComplete="name"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -305,7 +305,7 @@ const FeaturesSection = () => {
                     onChange={handleInputChange}
                     required
                     autoComplete="email"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -325,7 +325,7 @@ const FeaturesSection = () => {
                     onChange={handleInputChange}
                     required
                     autoComplete="tel"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -345,7 +345,7 @@ const FeaturesSection = () => {
                     onChange={handleInputChange}
                     required
                     autoComplete="organization"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter company name"
                   />
                 </div>
@@ -364,7 +364,7 @@ const FeaturesSection = () => {
                     onChange={handleInputChange}
                     required
                     rows="3"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors resize-none text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors resize-none text-sm sm:text-base"
                     placeholder="Describe the position you need to fill"
                   />
                 </div>
@@ -372,7 +372,7 @@ const FeaturesSection = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className={`w-full bg-gradient-to-r from-[#C7F380] to-[#A3E635] text-gray-900 font-semibold py-2.5 sm:py-3 px-4 rounded-lg hover:from-[#A3E635] hover:to-[#84CC16] transition-all duration-200 transform hover:scale-105 shadow-lg text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-[#C7F380] ${
+                  className={`w-full bg-gradient-to-r from-[#ebffc4] to-[#A3E635] text-gray-900 font-semibold py-2.5 sm:py-3 px-4 rounded-lg hover:from-[#A3E635] hover:to-[#84CC16] transition-all duration-200 transform hover:scale-105 shadow-lg text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-[#ebffc4] ${
                     submitting ? "opacity-60 cursor-not-allowed" : ""
                   }`}
                 >

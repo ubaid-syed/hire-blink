@@ -43,8 +43,8 @@ const FaqSection = () => {
     <section id="faq" className="relative py-24 px-4">
       {/* Background Elements */}
       {/* Remove custom background, let body background show through */}
-      <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-      <div className="absolute top-0 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-gradient-to-br from-lime-200/30 via-lime-400/20 to-green-300/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+      <div className="absolute top-0 right-1/4 w-72 h-72 bg-gradient-to-tr from-lime-300/30 via-green-200/20 to-lime-400/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
       
       <motion.div
         variants={fadeIn("up", 0.2)}
@@ -65,7 +65,7 @@ const FaqSection = () => {
           </motion.span>
           <motion.h2
             variants={textVariant(0.5)}
-            className="baloo-text text-3xl md:text-4xl font-bold text-[#C7F380] mb-4"
+            className="baloo-text text-3xl md:text-4xl font-bold text-[#ebffc4] mb-4"
           >
             Got Questions? We&apos;ve Got Answers
           </motion.h2>
@@ -74,7 +74,7 @@ const FaqSection = () => {
             className="text-gray-300 text-lg max-w-2xl mx-auto poppins-regular"
           >
             Everything you need to know about working with Blink. Can&apos;t find what you&apos;re looking for? 
-            <a href="mailto:Imaz@hire-blink.com" className="text-[#C7F380] hover:text-green-300 transition-colors duration-200 ml-1">
+            <a href="mailto:Imaz@hire-blink.com" className="text-[#ebffc4] hover:text-green-300 transition-colors duration-200 ml-1">
               Contact us directly.
             </a>
           </motion.p>
@@ -102,7 +102,7 @@ const FaqSection = () => {
                   transition={{ duration: 0.3 }}
                   className="flex-shrink-0"
                 >
-                  <HiChevronDown className="text-[#C7F380] text-xl" />
+                  <HiChevronDown className="text-[#ebffc4] text-xl" />
                 </motion.div>
               </button>
               
@@ -116,7 +116,7 @@ const FaqSection = () => {
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-5">
-                      <div className="w-12 h-px bg-gradient-to-r from-[#C7F380] to-transparent mb-4"></div>
+                      <div className="w-12 h-px bg-gradient-to-r from-[#ebffc4] to-transparent mb-4"></div>
                       <p className="text-gray-300 poppins-regular leading-relaxed">
                         {faq.answer}
                       </p>
@@ -137,7 +137,7 @@ const FaqSection = () => {
           </p>
           <a
             href="mailto:Imaz@hire-blink.com"
-            className="mt-4 inline-flex items-center gap-2 text-[#C7F380] hover:text-green-300 transition-colors duration-200 baloo-text font-semibold"
+            className="mt-4 inline-flex items-center gap-2 text-[#ebffc4] hover:text-green-300 transition-colors duration-200 baloo-text font-semibold"
             style={{ display: "inline-flex" }}
           >
             <span>Contact Our Team</span>
@@ -226,7 +226,7 @@ export default FaqSection;
 //           </motion.span>
 //           <motion.h2
 //             variants={textVariant(0.5)}
-//             className="baloo-text text-3xl md:text-4xl font-bold text-[#C7F380] mb-4"
+//             className="baloo-text text-3xl md:text-4xl font-bold text-[#ebffc4] mb-4"
 //           >
 //             Got Questions? We&apos;ve Got Answers
 //           </motion.h2>
@@ -235,7 +235,7 @@ export default FaqSection;
 //             className="text-gray-300 text-lg max-w-2xl mx-auto poppins-regular"
 //           >
 //             Everything you need to know about working with Blink. Can&apos;t find what you&apos;re looking for? 
-//             <a href="mailto:Imaz@hire-blink.com" className="text-[#C7F380] hover:text-green-300 transition-colors duration-200 ml-1">
+//             <a href="mailto:Imaz@hire-blink.com" className="text-[#ebffc4] hover:text-green-300 transition-colors duration-200 ml-1">
 //               Contact us directly.
 //             </a>
 //           </motion.p>
@@ -263,7 +263,7 @@ export default FaqSection;
 //                   transition={{ duration: 0.3 }}
 //                   className="flex-shrink-0"
 //                 >
-//                   <HiChevronDown className="text-[#C7F380] text-xl" />
+//                   <HiChevronDown className="text-[#ebffc4] text-xl" />
 //                 </motion.div>
 //               </button>
               
@@ -277,7 +277,7 @@ export default FaqSection;
 //                     className="overflow-hidden"
 //                   >
 //                     <div className="px-6 pb-5">
-//                       <div className="w-12 h-px bg-gradient-to-r from-[#C7F380] to-transparent mb-4"></div>
+//                       <div className="w-12 h-px bg-gradient-to-r from-[#ebffc4] to-transparent mb-4"></div>
 //                       <p className="text-gray-300 poppins-regular leading-relaxed">
 //                         {faq.answer}
 //                       </p>
@@ -298,7 +298,7 @@ export default FaqSection;
 //           </p>
 //           <a
 //             href="mailto:Imaz@hire-blink.com"
-//             className="mt-4 inline-flex items-center gap-2 text-[#C7F380] hover:text-green-300 transition-colors duration-200 baloo-text font-semibold"
+//             className="mt-4 inline-flex items-center gap-2 text-[#ebffc4] hover:text-green-300 transition-colors duration-200 baloo-text font-semibold"
 //             style={{ display: "inline-flex" }}
 //           >
 //             <span>Contact Our Team</span>

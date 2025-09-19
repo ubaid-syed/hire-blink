@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import emailjs from '@emailjs/browser';
 
-const HERO_IMAGE_SRC = "/hero-image_11zon.webp"; 
+// const HERO_IMAGE_SRC = "/hero-image_11zon.webp"; 
+const HERO_IMAGE_SRC = "/technology-integrated-everyday-life(1).jpg"; 
 
 const Hero = () => {
   const [showForm, setShowForm] = useState(false);
@@ -82,16 +83,32 @@ const Hero = () => {
         <motion.div variants={fadeIn('right', 0.2)} initial="hidden" whileInView="show">
           {/* Star badge */}
           <div className="flex items-center gap-2 bg-gray-50 w-fit px-3 sm:px-4 py-1.5 sm:py-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer group">
-            <span className="text-[#0D263A] group-hover:scale-110 transition-transform">★</span>
-            <span className="text-xs sm:text-sm font-medium poppins-regular">AI-Powered</span>
+            <span className="text-[#0D263A] group-hover:scale-110 transition-transform poppins-bold">★</span>
+            <span className="text-xs sm:text-sm  poppins-bold">AI-Powered</span>
           </div>
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           variants={textVariant(0.3)}
           initial="hidden"
           whileInView="show"
-          className="baloo-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#C7F380] drop-shadow-lg"
+          className="baloo-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#ebffc4] drop-shadow-lg"
+        >
+          AI-Powered On-Demand Recruiting for Staffing Agencies
+        </motion.h1>
+        <motion.p
+          variants={fadeIn('up', 0.4)}
+          initial="hidden"
+          whileInView="show"
+          className="poppins-regular text-gray-200 text-lg sm:text-xl md:text-2xl max-w-2xl mt-2"
+        >
+          Place top talent with your clients—fast, cost-effective, and seamless. Just like the Blink of an Eye.
+        </motion.p>
+        {/* <motion.h1 
+          variants={textVariant(0.3)}
+          initial="hidden"
+          whileInView="show"
+          className="baloo-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#ebffc4] drop-shadow-lg"
         >
           AI-Powered On-Demand Recruiting for Staffing Agencies
         </motion.h1>
@@ -103,7 +120,7 @@ const Hero = () => {
           className="poppins-regular text-gray-300 text-base sm:text-lg md:text-xl max-w-xl"
         >
           Place top talent with your clients—fast, cost-effective, and seamless. Just like the Blink of an Eye.
-        </motion.p>
+        </motion.p> */}
 
         <motion.div 
           variants={fadeIn('up', 0.5)}
@@ -119,7 +136,7 @@ const Hero = () => {
               y: -2,
             }}
             whileTap={{ scale: 0.98 }}
-            className="flex justify-center gap-2 items-center shadow-xl text-base sm:text-lg bg-gradient-to-r from-[#C7F380] to-green-400 backdrop-blur-md lg:font-semibold isolation-auto border-[#C7F380] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#0D263A] hover:text-white before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-6 sm:px-8 py-3 sm:py-4 overflow-hidden border-2 rounded-full group"
+            className="flex justify-center gap-2 items-center shadow-xl text-base sm:text-lg bg-gradient-to-r from-[#ebffc4] to-green-400 backdrop-blur-md lg:font-semibold isolation-auto border-[#ebffc4] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#0D263A] hover:text-white before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-6 sm:px-8 py-3 sm:py-4 overflow-hidden border-2 rounded-full group"
           >
             <span className="relative z-10 text-[#0D263A] group-hover:text-black transition-colors duration-300 poppins-regular">Start Free Candidate Search</span>
             <motion.svg
@@ -142,9 +159,9 @@ const Hero = () => {
               y: -2,
             }}
             whileTap={{ scale: 0.98 }}
-            className="flex justify-center gap-2 items-center shadow-xl text-base sm:text-lg bg-white lg:font-semibold isolation-auto border-[#C7F380] relative z-10 px-6 sm:px-8 py-3 sm:py-4 overflow-hidden border-2 rounded-full group transition-colors duration-300 hover:bg-[#C7F380]/90"
+            className="flex justify-center gap-2 items-center shadow-xl text-base sm:text-lg bg-white lg:font-semibold isolation-auto border-[#ebffc4] relative z-10 px-6 sm:px-8 py-3 sm:py-4 overflow-hidden border-2 rounded-full group transition-colors duration-300 hover:bg-[#ebffc4]/90"
           >
-            <span className="relative z-10 text-[#0D263A] group-hover:text-black transition-colors duration-300 poppins-regular">Start Free Candidate Search</span>
+            <span className="relative z-10 text-[#0D263A] group-hover:text-black transition-colors duration-300 poppins-bold">Start Free Candidate Search</span>
             <motion.svg
               className="w-7 h-7 sm:w-8 sm:h-8 justify-end group-hover:rotate-90 group-hover:bg-white text-[#0D263A] ease-linear duration-300 rounded-full border border-[#0D263A] group-hover:border-white p-1.5 sm:p-2 rotate-45"
               viewBox="0 0 16 19"
@@ -172,6 +189,7 @@ const Hero = () => {
           fetchpriority="high"
           decoding="async"
         />
+       
       </div>
 
       {/* Modal Form */}
@@ -218,7 +236,7 @@ const Hero = () => {
                     onChange={handleInputChange}
                     required
                     autoComplete="name"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -235,7 +253,7 @@ const Hero = () => {
                     onChange={handleInputChange}
                     required
                     autoComplete="email"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -252,7 +270,7 @@ const Hero = () => {
                     onChange={handleInputChange}
                     required
                     autoComplete="tel"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -269,7 +287,7 @@ const Hero = () => {
                     onChange={handleInputChange}
                     required
                     autoComplete="organization"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors text-sm sm:text-base"
                     placeholder="Enter company name"
                   />
                 </div>
@@ -285,7 +303,7 @@ const Hero = () => {
                     onChange={handleInputChange}
                     required
                     rows="3"
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C7F380] focus:border-transparent transition-colors resize-none text-sm sm:text-base"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ebffc4] focus:border-transparent transition-colors resize-none text-sm sm:text-base"
                     placeholder="Describe the position you need to fill"
                   />
                 </div>
@@ -293,7 +311,7 @@ const Hero = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className={`w-full bg-gradient-to-r from-[#C7F380] to-[#A3E635] text-gray-900 font-semibold py-2.5 sm:py-3 px-4 rounded-lg hover:from-[#A3E635] hover:to-[#84CC16] transition-all duration-200 transform hover:scale-105 shadow-lg text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-[#C7F380] ${submitting ? 'opacity-60 cursor-not-allowed' : ''}`}
+                  className={`w-full bg-gradient-to-r from-[#ebffc4] to-[#A3E635] text-gray-900 font-semibold py-2.5 sm:py-3 px-4 rounded-lg hover:from-[#A3E635] hover:to-[#84CC16] transition-all duration-200 transform hover:scale-105 shadow-lg text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-[#ebffc4] ${submitting ? 'opacity-60 cursor-not-allowed' : ''}`}
                 >
                   {submitting ? "Submitting..." : "Submit Request"}
                 </button>

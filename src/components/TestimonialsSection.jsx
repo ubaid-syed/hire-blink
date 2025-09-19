@@ -30,14 +30,14 @@ const testimonials = [
 const bgBlobs = [
   {
     className:
-      "absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl pointer-events-none z-0",
-    style: { opacity: 0.18 },
+      "absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-b from-lime-200 via-lime-300 to-lime-400 rounded-full blur-3xl pointer-events-none z-0",
+    style: { opacity: 0.25 },
     delay: 0.2,
   },
   {
     className:
-      "absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl pointer-events-none z-0",
-    style: { opacity: 0.12 },
+      "absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-lime-200 via-lime-300 to-lime-400 rounded-full blur-3xl pointer-events-none z-0",
+    style: { opacity: 0.25 },
     delay: 0.4,
   },
 ];
@@ -83,7 +83,7 @@ const TestimonialsSection = () => {
         </motion.span>
         <motion.h2
           variants={textVariant(0.3)}
-          className=" baloo-text text-4xl md:text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-700 via-green-600 to-purple-600 bg-clip-text text-[#C7F380]"
+          className=" baloo-text text-4xl md:text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-700 via-green-600 to-purple-600 bg-clip-text text-[#ebffc4]"
         >
           What Clients Say
         </motion.h2>
@@ -155,7 +155,7 @@ const TestimonialsSection = () => {
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ delay: 0.3, duration: 0.5 }}
-                        className="origin-left w-24 h-1 bg-gradient-to-r from-[#C7F380] via-green-400 to-[#C7F380] rounded-full mt-6"
+                        className="origin-left w-24 h-1 bg-gradient-to-r from-[#ebffc4] via-green-400 to-[#ebffc4] rounded-full mt-6"
                       />
                     </motion.div>
                   )}

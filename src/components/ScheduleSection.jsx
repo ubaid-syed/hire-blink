@@ -65,7 +65,7 @@ const ScheduleSection = () => {
           </motion.span>
           <motion.h2
             variants={textVariant(0.5)}
-            className="baloo-text text-3xl md:text-4xl font-bold text-[#C7F380] mb-2"
+            className="baloo-text text-3xl md:text-4xl font-bold text-[#ebffc4] mb-2"
           >
             Expertise Across Critical Sectors
           </motion.h2>

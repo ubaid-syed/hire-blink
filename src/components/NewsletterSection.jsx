@@ -26,14 +26,14 @@ const NewsletterSection = () => {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl pointer-events-none z-0"
+        className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-b from-lime-200 via-lime-300 to-lime-400 rounded-full blur-2xl pointer-events-none z-0"
       />
       <motion.div
         variants={bgBlobVariants}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-[#18486b] via-[#185a8a] to-[#0d253a] rounded-full blur-3xl pointer-events-none z-0"
+        className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-b from-lime-200 via-lime-300 to-lime-400 rounded-full blur-2xl pointer-events-none z-0"
       />
 
       <motion.div
@@ -50,7 +50,7 @@ const NewsletterSection = () => {
         >
           <motion.span
             variants={fadeIn('up', 0.35)}
-            className=" baloo-text inline-block bg-blue-950 text-[#C7F380] text-xs font-semibold px-5 py-2 rounded-full tracking-wider mb-2 border border-blue-800"
+            className=" baloo-text inline-block bg-blue-950 text-[#ebffc4] text-xs font-semibold px-5 py-2 rounded-full tracking-wider mb-2 border border-blue-800"
           >
             LET'S TALK
           </motion.span>
@@ -80,7 +80,7 @@ const NewsletterSection = () => {
             initial="initial"
             whileHover="hover"
             whileTap="tap"
-            className="group bg-[#C7F380] hover:bg-lime-300 text-[#0D263A] font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-lime-500/40 flex items-center gap-3 focus:outline-none focus:ring-4 focus:ring-lime-500/50 transition-all duration-300"
+            className="group bg-[#ebffc4] hover:bg-lime-300 text-[#0D263A] font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-lime-500/40 flex items-center gap-3 focus:outline-none focus:ring-4 focus:ring-lime-500/50 transition-all duration-300"
             aria-label="Book a Free Strategy Call"
           >
             <span className="relative z-10 baloo-text">
